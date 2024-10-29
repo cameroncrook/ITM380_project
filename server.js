@@ -1,14 +1,29 @@
 // REQUIRE STATEMENTS
 // ==========================
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const static = require("./routes/static");
 const baseController = require('./controllers/baseController');
 const accountRoutes = require('./routes/accountRoutes');
+require('dotenv').config();
+const pool = require('./database/connection');
 
 const app = express();
 
 app.set('view engine', 'ejs');
+
+// MIDDLEWARE
+app.use(session({
+    store: new (require('connect-pg-simple')(session))({
+        createTableIfMissing: true,
+        pool,
+    }),
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    name: 'session',
+}));
 
 // ROUTES
 app.use(static);

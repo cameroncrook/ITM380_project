@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "fieldtechinnovations.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "itm_database",
+            "database": "itm_project",
+            "username": "itm_dev",
+            "password": "itm_dev"
+        }
+    ]
+}
