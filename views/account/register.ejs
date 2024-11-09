@@ -9,7 +9,7 @@
 <body>
     <div class="auth-container">
         <h2>Create a New Account</h2>
-        <form action="/register" method="POST">
+        <form action="/account/register" method="POST">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -27,7 +27,7 @@
                 <input type="password" id="confirm-password" name="confirmPassword" required>
             </div>
             <button type="submit" class="btn">Register</button>
-            <p class="link-text">Already have an account? <a href="/login">Login here</a></p>
+            <p class="link-text">Already have an account? <a href="/account/login">Login here</a></p>
         </form>
     </div>
 </body>

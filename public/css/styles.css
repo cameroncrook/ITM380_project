@@ -1,0 +1,100 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+/* Container Styling */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header a:hover {
+    color: #4CAF50;
+}
+
+/* Form Inputs */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Links */
+.login-link, .register-link, .forgot-password-link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-link:hover, .register-link:hover, .forgot-password-link:hover {
+    color: #388E3C;
+}
+
+/* Show Password Toggle */
+.show-password {
+    float: right;
+    margin-top: -36px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.show-password:hover {
+    color: #388E3C;
+}
