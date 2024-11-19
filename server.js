@@ -6,6 +6,7 @@ const path = require('path');
 const static = require("./routes/static");
 const baseController = require('./controllers/baseController');
 const accountRoutes = require('./routes/accountRoutes');
+const coursesRoutes = require('./routes/coursesRoutes');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const pool = require('./database/connection');
@@ -39,6 +40,7 @@ app.use(static);
 // Define a route handler for the default home page
 app.get("/", utilities.requireLogin, baseController.buildHome);
 app.use("/account", accountRoutes);
+app.use("/courses", utilities.requireLogin, coursesRoutes);
 
 // Start the server and listen on port 3000
 const port = 3000;
