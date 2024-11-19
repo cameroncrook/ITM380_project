@@ -6,8 +6,10 @@ const path = require('path');
 const static = require("./routes/static");
 const baseController = require('./controllers/baseController');
 const accountRoutes = require('./routes/accountRoutes');
+const bodyParser = require('body-parser');
 require('dotenv').config();
 const pool = require('./database/connection');
+const utilities = require('./utilities/');
 
 const app = express();
 
@@ -28,11 +30,14 @@ app.use(session({
     name: 'session',
 }));
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // ROUTES
 app.use(static);
 
 // Define a route handler for the default home page
-app.get("/", baseController.buildHome);
+app.get("/", utilities.requireLogin, baseController.buildHome);
 app.use("/account", accountRoutes);
 
 // Start the server and listen on port 3000
