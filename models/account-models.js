@@ -26,6 +26,7 @@ async function getAccount(account_email) {
             `SELECT * FROM public.account WHERE account_email = $1;`, [account_email]
         )
 
+        console.log(result);
         return result.rows[0];
     } catch (err) {
         console.log(`Error while getting user: ${err}`);
