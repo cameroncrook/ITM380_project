@@ -5,8 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levels</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .level-container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .level-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .level-card:hover {
+            transform: scale(1.05);
+        }
+
+        .level-card h3 {
+            font-size: 20px;
+            margin: 0;
+            color: #333333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 <body>
-    <h1>Levels Page</h1>
+    <div class="level-container">
+        <% const levels = ['Level 1', 'Level 2', 'Level 3']; %>
+        <% levels.forEach((level, index) => { %>
+            <a href="/courses/<%= course_id %>/levels/<%= index + 1 %>">
+                <div class="level-card">
+                    <h3><%= level %></h3>
+                </div>
+            </a>
+        <% }); %>
+    </div>
 </body>
 </html>
