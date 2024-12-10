@@ -54,11 +54,10 @@
 </head>
 <body>
     <div class="level-container">
-        <% const levels = ['Level 1', 'Level 2', 'Level 3']; %>
-        <% levels.forEach((level, index) => { %>
-            <a href="/courses/<%= course_id %>/levels/<%= index + 1 %>">
+        <% levels.forEach(level => { %>
+            <a href="/courses/<%= course.course_id %>/level/<%= level.level_id %>">
                 <div class="level-card">
-                    <h3><%= level %></h3>
+                    <h3><%= level.level_number %></h3>
                 </div>
             </a>
         <% }); %>

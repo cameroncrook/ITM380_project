@@ -6,6 +6,6 @@ router.get('/', coursesController.renderCourses);
 
 router.get('/:course_id', coursesController.renderLevels);
 
-router.get('/:course_id/:level_id', coursesController.renderContent);
+router.get('/:course_id/level/:level_id', coursesController.renderContent);
 
 module.exports = router;
