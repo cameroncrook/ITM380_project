@@ -33,7 +33,7 @@ async function handleLogin(req, res) {
 
             console.log("Logged in");
 
-            return res.redirect('/');
+            return res.redirect('/courses');
         } else {
             return res.redirect('/account/login');
         }
