@@ -15,12 +15,13 @@ async function renderLevels(req, res) {
     res.render('courses/levels', {course, levels});
 }
 
-function renderContent(req,res) {
+async function renderContent(req,res) {
+    const course_id = req.params.course_id;
     const level_id = req.params.level_id;
 
-    console.log(level_id);
+    const slides = await courseModel.getContent(level_id, course_id);
 
-    res.render('courses/content');
+    res.render('courses/content', { slides, level_id });
 }
 
 module.exports = { renderCourses, renderLevels, renderContent };

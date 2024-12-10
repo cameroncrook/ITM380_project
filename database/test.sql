@@ -1,1 +1,1 @@
-SELECT * FROM public.level;
+SELECT * FROM public.content;
