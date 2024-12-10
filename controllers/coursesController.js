@@ -1,6 +1,9 @@
+const courseModel = require('../models/course-models');
 
-function renderCourses(req, res) {
-    res.render('courses/courses');
+async function renderCourses(req, res) {
+    const courses = await courseModel.getCourses();
+
+    res.render('courses/courses', { courses });
 }
 
 function renderLevels(req, res) {
