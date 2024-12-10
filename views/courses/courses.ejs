@@ -8,5 +8,13 @@
 </head>
 <body>
     <h1>Courses Page</h1>
+    <% if (courses && courses.length > 0) { %>
+        <% courses.forEach(course => { %>
+            <a href="/courses/<%= course.course_id %>"><div>
+                <h3><%= course.course_name %></h3>
+            </div></a>
+        <% }); %>
+
+    <% } %>
 </body>
 </html>
