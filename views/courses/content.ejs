@@ -5,8 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .slide {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .navigation {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-    <h1>Content Page</h1>
+    <h1>Level <%= level_id %> Content</h1>
+    <div id="slides">
+        <% slides.forEach((slide, index) => { %>
+            <div class="slide <%= index === 0 ? 'active' : '' %>">
+                <h2><%= slide.title %></h2>
+                <p><%= slide.content %></p>
+            </div>
+        <% }); %>
+    </div>
+    <div class="navigation">
+        <button id="prev" disabled>Previous</button>
+        <button id="next">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        document.getElementById('prev').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide--;
+            slides[currentSlide].classList.add('active');
+            updateButtons();
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide++;
+            slides[currentSlide].classList.add('active');
+            updateButtons();
+        });
+
+        function updateButtons() {
+            document.getElementById('prev').disabled = currentSlide === 0;
+            document.getElementById('next').disabled = currentSlide === slides.length - 1;
+        }
+    </script>
 </body>
 </html>
