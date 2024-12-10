@@ -13,6 +13,18 @@ async function getCourses() {
     }
 }
 
+async function getCourseInfo(course_id) {
+    try {
+        const result = await pool.query(
+            `SELECT * FROM public.course WHERE course_id = $1`, [course_id]
+        )
+
+        return result.rows[0];
+    } catch (err) {
+        return false;
+    }
+}
+
 async function getLevels() {
     try {
         const result = await pool.query(
@@ -39,4 +51,4 @@ async function getContent(level_id, course_id) {
     }
 }
 
-module.exports = {getCourses, getLevels, getContent}
+module.exports = {getCourses, getCourseInfo, getLevels, getContent}

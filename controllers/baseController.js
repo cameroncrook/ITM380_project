@@ -1,8 +1,7 @@
 const baseController = {}
 
 baseController.buildHome = async function(req, res) {
-    const message = "This is a test message";
-    res.render("index", {message})
+    res.redirect('/courses');
 }
 
 module.exports = baseController

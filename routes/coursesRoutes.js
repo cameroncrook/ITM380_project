@@ -4,8 +4,8 @@ const coursesController = require("../controllers/coursesController");
 
 router.get('/', coursesController.renderCourses);
 
-router.get('/levels', coursesController.renderLevels);
+router.get('/:course_id', coursesController.renderLevels);
 
-router.get('/content', coursesController.renderContent);
+router.get('/:course_id/:level_id', coursesController.renderContent);
 
 module.exports = router;
