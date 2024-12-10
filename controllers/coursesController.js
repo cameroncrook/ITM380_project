@@ -9,10 +9,10 @@ async function renderCourses(req, res) {
 async function renderLevels(req, res) {
     const course_id = req.params.course_id;
 
-    const course_info = await courseModel.getCourseInfo(course_id);
+    const course = await courseModel.getCourseInfo(course_id);
     const levels = await courseModel.getLevels();
 
-    res.render('courses/levels', {course_info, levels});
+    res.render('courses/levels', {course, levels});
 }
 
 function renderContent(req,res) {
